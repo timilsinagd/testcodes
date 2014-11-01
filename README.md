@@ -15,7 +15,7 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-4](#assignment-4-learning-switch) Learning Switch
 - [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat
 - [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open
-- [assignment-7](#assignment-7-SDN-firewalls) SDN and Firewalls
+- [assignment-7](#assignment-7-SDN-and-firewalls) SDN and Firewalls
 - [assignment-8](#assignment-8-tba) TBA
 - [assignment-9](#assignment-9-tba) TBA
 
@@ -209,8 +209,7 @@ Work with Software Defined Networking (SDN) controllers in Python, specifically 
 
 ![assignment-7-topology-a](img/assignment-7a.png)
 
-- Implement the firewall policies in `firewall-policies.csv` by editing `pox_firewall.py` and `pyretic_firewall.py`.
-- A good POX resource for this assignment is [[here](http://archive.openflow.org/wk/index.php/OpenFlow_Tutorial)] and a good Pyretic resource can be found [[here](https://github.com/frenetic-lang/pyretic/wiki/How-to-use-match)].
+- Implement the firewall policies in `firewall-policies.csv` by editing `pox_firewall.py` and `pyretic_firewall.py`, a good POX [resource](http://archive.openflow.org/wk/index.php/OpenFlow_Tutorial) for this assignment is and a good Pyretic [resource](https://github.com/frenetic-lang/pyretic/wiki/How-to-use-match).
 - Clean up your environment between every run.
 - Run your respective controller w/firewall in POX or Pyretic.
 - Create networking environment (i.e., run mininet).
