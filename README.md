@@ -15,7 +15,7 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-4](#assignment-4-learning-switch) Learning Switch
 - [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat
 - [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open
-- [assignment-7](#assignment-7-SDN-and-firewalls) SDN and Firewalls
+- [assignment-7](#assignment-7-sdn-and-firewalls) SDN and Firewalls
 - [assignment-8](#assignment-8-tba) TBA
 - [assignment-9](#assignment-9-tba) TBA
 
