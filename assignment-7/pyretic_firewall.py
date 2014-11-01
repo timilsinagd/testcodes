@@ -1,6 +1,8 @@
 '''
 Udacity: ud436/sdn-firewall
 Professor: Nick Feamster
+
+TODO completed by Nam Pho (npho3) on 11/1/2014
 '''
 
 ################################################################################
@@ -62,10 +64,10 @@ def main():
     # Note: this uses the same policy named tuple from the POX
     # firewall code. Please refer there for further info. HINT - You could use '|' in place of  '+' as well.
     for policy in policies.itervalues():
-        not_allowed = not_allowed + ( <traffic going in one direction> ) + ( <traffic going in the other direction> )
+        not_allowed = not_allowed | match(srcmac=policy.mac_0, dstmac=policy.mac_1) | match(srcmac=policy.mac_1, dstmac=policy.mac_0)
 
     # TODO express allowed traffic in terms of not_allowed - hint use '~'
-    allowed = <...>
+    allowed = ~not_allowed
 
     # and only send allowed traffic to the mac learning (act_like_switch) logic
     return allowed >> ActLikeSwitch()
