@@ -1,6 +1,8 @@
 '''
 Udacity: ud436/sdn-firewall
 Professor: Nick Feamster
+
+TODO completed by Nam Pho (npho3) on 11/1/2014
 '''
 
 from pox.core import core
@@ -50,7 +52,32 @@ class Firewall (EventMixin):
 
             # Note: Set the priority for your rule to 20 so that it
             # doesn't conflict with the learning bridge setup
-            pass
+
+            # create generic table entry
+            msg = of.ofp_flow_mod()
+            msg.priority = 20
+            msg.actions.append(of.ofp_action_output(port=of.OFPP_NONE))
+
+            # create generic match
+            match = of.ofp_match()
+
+            # policy in one direction
+            match.dl_src = policy.dl_src
+            match.dl_dst = policy.dl_dst
+            msg.match = match
+            event.connection.send(msg)
+
+            # policy for opposite direction
+            match.dl_src = policy.dl_dst
+            match.dl_dst = policy.dl_src
+            msg.match = match
+            event.connection.send(msg)
+
+            # debug
+            log.info("Installing firewall rule for src=%s, dst=%s" % (policy.dl_src, policy.dl_dst))
+            log.debug(msg)
+        
+        log.info("Hubifying %s", dpidToStr(event.dpid))
 
         log.debug("Firewall rules installed on %s", dpidToStr(event.dpid))
 
