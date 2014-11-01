@@ -15,7 +15,7 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-4](#assignment-4-learning-switch) Learning Switch
 - [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat
 - [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open
-- [assignment-7](#assignment-7-tba) TBA
+- [assignment-7](#assignment-7-SDN-firewalls) SDN and Firewalls
 - [assignment-8](#assignment-8-tba) TBA
 - [assignment-9](#assignment-9-tba) TBA
 
@@ -203,9 +203,48 @@ $ sudo ./run.sh
 
 
 
-####assignment-7: TBA
+####assignment-7: SDN and Firewalls
 
-- Work next week.
+Work with Software Defined Networking (SDN) controllers in Python, specifically POX and Pyretic languages. Use the SDN languages to implement a firewall based on L2 and L3 headers (i.e., IP and MAC addresses) between `h1` and `h2` as shown in the diagram below. 
+
+![assignment-7-topology-a](img/assignment-7a.png)
+
+- Implement the firewall policies in `firewall-policies.csv` by editing `pox_firewall.py` and `pyretic_firewall.py`.
+- A good POX resource for this assignment is [[here](http://archive.openflow.org/wk/index.php/OpenFlow_Tutorial)] and a good Pyretic resource can be found [[here](https://github.com/frenetic-lang/pyretic/wiki/How-to-use-match)].
+- Clean up your environment between every run.
+- Run your respective controller w/firewall in POX or Pyretic.
+- Create networking environment (i.e., run mininet).
+- Test if firewall rules are actually implemented in each controller by running `ping` (below).
+
+```
+# clean up environment
+$ sudo fuser -k 6633/tcp
+$ sudo mn -c
+
+# POX setup
+$ ln -s ~/CSCS6250/assignment-7/firewall-policies.csv ~/pox/pox/misc/
+$ ln -s ~/CSCS6250/assignment-7/pox_firewall.py ~/pox/pox/misc/
+$ pox.py log.level --DEBUG forwarding.l2_learning misc.pox_firewall &
+
+# Pyretic setup
+$ ln -s ~/CSCS6250/assignment-7/firewall-policies.csv ~/pyretic/pyretic/examples/
+$ ln -s ~/CSCS6250/assignment-7/pyretic_firewall.py ~/pyretic/pyretic/examples/
+$ pyretic.py pyretic.examples.pyretic_firewall &
+
+# create network
+$ sudo mn --topo single,3 --controller remote --mac
+
+# h1 and h2 should drop packets
+mininet> h1 ping -c1 h2
+mininet> h2 ping -c1 h1
+
+# h3 should not
+mininet> h1 ping -c1 h3
+mininet> h3 ping -c1 h1
+
+mininet> h2 ping -c1 h3
+mininet> h3 ping -c1 h2
+```
 
 
 
