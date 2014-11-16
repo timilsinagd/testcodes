@@ -16,8 +16,8 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat
 - [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open
 - [assignment-7](#assignment-7-sdn-and-firewalls) SDN and Firewalls
-- [assignment-8](#assignment-8-tba) TBA
-- [assignment-9](#assignment-9-tba) TBA
+- [assignment-8](#assignment-8-sdn-and-dos-attacks) SDN and DoS Attacks
+- [assignment-9](#assignment-9-replicating-research) Replicating Research
 
 
 
@@ -247,13 +247,53 @@ mininet> h3 ping -c1 h2
 
 
 
-####assignment-8: TBA
+####assignment-8: SDN and DoS Attacks
 
-- Work next week.
+- Use [sFlowRT](http://www.inmon.com/products/sFlow-RT.php) to monitor network traffic.
+- Use [PyResonance](https://github.com/Resonance-SDN/pyresonance/wiki) to alter network traffic in response to events (e.g., DoS attack).
+
+```
+### 1st window (create network)
+# start 3 node mn 
+$ sudo mn --controller=remote --topo=single,3
+
+
+### 2nd window (monitoring agent)
+# create sFlow agent 
+$ sudo ovs-vsctl -- --id=@sflow create sflow agent=eth0 target=\"127.0.0.1:6343\" sampling=2 polling=20 -- -- set bridge s1 sflow=@sflow
+
+# start sFlowRT
+$ ./start.sh
+
+
+### 3rd window (SDN switch)
+# copy policy files to pyretic/pyresonance/apps/
+# copy config file to pyretic/pyresonance/
+
+# run pyretic switch
+$ ./pyretic.py pyretic.pyresonance.main --config=./pyretic/pyresonance/global.config --mode=manual
+```
+
+- Make changes to the `dos_policy.py` file to drop DDoS attack connections.
+- Test below.
+
+```
+# confirm all 3 hosts can ping each other
+mininet> pingall
+
+# get console on h1
+mininet> xterm h1
+
+# start DoS sttack from h1
+$ sudo ping 10.0.0.2 -i .05
+
+# confirm that h1 now blocked from all other hosts
+mininet> pingall
+```
 
 
 
-####assignment-9: TBA
+####assignment-9: Replicating Research
 
 - Work next week.
 

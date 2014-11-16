@@ -5,6 +5,8 @@
 # Professor: Nick Feamster
 # Teaching Assistant: Ben Jones
 #
+# TODO completed by Nam Pho (npho3) on 11/15/14
+#
 ################################################################################
 # Resonance Project                                                            #
 # Resonance implemented with Pyretic platform                                  #
@@ -27,6 +29,9 @@ class DDoSPolicy(BasePolicy):
     
     def __init__(self, fsm):
         self.fsm = fsm
+
+    def block_policy(self):
+        return drop
         
     def allow_policy(self):
         return passthrough
@@ -49,6 +54,9 @@ class DDoSPolicy(BasePolicy):
             #  created
 
             # Parallel composition- return the policy that you created
+            
+            p1 = ~self.fsm.get_policy("ddos-attacker")
+            
             return p1
 
         else:
