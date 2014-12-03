@@ -2,6 +2,8 @@
 
 "GT CS6250 Assignment 9 - Wireless Handoff"
 
+# TODO completed by Nam Pho (npho3) on 12/3/14
+
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.log import lg, output
@@ -76,6 +78,11 @@ class Topo1(Topo):
         # Host and link configuration
         # Be sure to follow the configuration parameters in the assignment
         # TODO
+        hostConfig = {'cpu': cpu}
+
+        linkConfig_ethernet = {'bw': 10, 'delay': '1ms', 'loss': 0, 'max_queue_size': max_queue_size }
+        linkConfig_wifi = {'bw': 2, 'delay': '5ms', 'loss': 3, 'max_queue_size': max_queue_size }
+        linkConfig_3g = {'bw': 2, 'delay': '75ms', 'loss': 2, 'max_queue_size': max_queue_size }
         
         # Switch ports 1:downlink 2:uplink
         # Use these to set the receiving and sending ports
@@ -85,12 +92,25 @@ class Topo1(Topo):
 
         # Hosts and switches
         # TODO
+        s1 = self.addSwitch('s1')
+        s2 = self.addSwitch('s2')
+        s3 = self.addSwitch('s3')
 
-	    # Wire receiver
+        sender = self.addHost('sender', **hostConfig)
+        receiver = self.addHost('receiver', **hostConfig)
+
+        # Wire receiver
         # TODO
+        self.addLink(receiver, s1, **linkConfig_ethernet)
+        self.addLink(receiver, s2, **linkConfig_wifi)
+        self.addLink(receiver, s3, **linkConfig_3g)
 
         # Wire sender
         # TODO
+        self.addLink(s1, sender, **linkConfig_ethernet)
+        self.addLink(s2, sender, **linkConfig_wifi)
+        self.addLink(s3, sender, **linkConfig_3g)
+
 
 def waitListening(client, server, port):
     "Wait until server is listening on port"
