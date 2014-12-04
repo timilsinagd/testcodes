@@ -295,9 +295,23 @@ mininet> pingall
 
 ####assignment-9: Replicating Research
 
-- Work next week.
+- This is an experiment in Multipath TCP (MPTCP).
+- Implement the network topology below by completing TODO sections. 
+- Additional quiz questions. 
 
+![assignment-9-topology-a](img/assignment-9a.png)
 
+```
+# upgrade kernel
+$ sudo ./install_mptcp_raring.sh
+
+# confirm testing env
+$ sudo ./test_mptcp.py --bw 10 --mptcp -n 2
+
+# run experiments
+$ sudo ./mptcp_handoff.sh
+$ sudo ./mptcp_sweep.sh
+```
 
 
 
