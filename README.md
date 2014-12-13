@@ -6,7 +6,7 @@ Project code for CS6250 (Computer Networking) at Georgia Tech for fall 2014, lec
 Nam Pho (npho3@gatech.edu) <br />
 Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 
-
+Final thoughts: this was my first Gtech OMSCS course and I loved the quality of the lecture content. The hw assignments were relevant and fun although I felt (as was confirmed by many of my classmates on Piazza) that the quiz questions were sometimes confusingly worded.
 
 ##Table of Contents
 - [Notes](#notes)
@@ -18,9 +18,11 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open (9/10)
 - [assignment-7](#assignment-7-sdn-and-firewalls) SDN and Firewalls (10/10)
 - [assignment-8](#assignment-8-sdn-and-dos-attacks) SDN and DoS Attacks (9.5/10)
-- [assignment-9](#assignment-9-replicating-research) Replicating Research (18.5/20)
+- [assignment-9](#assignment-9-replicating-research) Replicating Research (18/20)
 
-\begin{equation*} Grade = \left(0.5*HW1 + \sum_{i=2}^9 HW_i\right)/95 * 100$ \end{equation*}
+Final Grade = (0.5*hw1 + sum(hw2-hw9))/95 * 100 = 95.26%
+
+Hw assignments were equal parts coding and quiz questions. All the code in this repo is correct for the assignments and points lost were exclusively from quiz questions.
 
 ####Notes
 1\. Clone the original OMS6250 repo and fork it.
