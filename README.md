@@ -10,16 +10,17 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 
 ##Table of Contents
 - [Notes](#notes)
-- [assignment-2](#assignment-2-mininet-topology) Mininet Topology
-- [assignment-3](#assignment-3-parking-lot) Parking Lot
-- [assignment-4](#assignment-4-learning-switch) Learning Switch
-- [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat
-- [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open
-- [assignment-7](#assignment-7-sdn-and-firewalls) SDN and Firewalls
-- [assignment-8](#assignment-8-sdn-and-dos-attacks) SDN and DoS Attacks
-- [assignment-9](#assignment-9-replicating-research) Replicating Research
+- assignment-1 Mininet Setup (10/10)
+- [assignment-2](#assignment-2-mininet-topology) Mininet Topology (10/10)
+- [assignment-3](#assignment-3-parking-lot) Parking Lot (11.5/10)
+- [assignment-4](#assignment-4-learning-switch) Learning Switch (9.5/10)
+- [assignment-5](#assignment-5-buffer-bloat) Buffer Bloat (8/10)
+- [assignment-6](#assignment-6-tcp-fast-open) TCP Fast Open (9/10)
+- [assignment-7](#assignment-7-sdn-and-firewalls) SDN and Firewalls (10/10)
+- [assignment-8](#assignment-8-sdn-and-dos-attacks) SDN and DoS Attacks (9.5/10)
+- [assignment-9](#assignment-9-replicating-research) Replicating Research (18.5/20)
 
-
+$Grade = \left(0.5*HW1 + \sum_{i=2}^9 HW_i\right)/95 * 100$
 
 ####Notes
 1\. Clone the original OMS6250 repo and fork it.
