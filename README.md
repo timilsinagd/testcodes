@@ -20,7 +20,7 @@ Forked from https://github.com/OMS6250/gt-cs6250 on 9/4/14
 - [assignment-8](#assignment-8-sdn-and-dos-attacks) SDN and DoS Attacks (9.5/10)
 - [assignment-9](#assignment-9-replicating-research) Replicating Research (18.5/20)
 
-$Grade = \left(0.5*HW1 + \sum_{i=2}^9 HW_i\right)/95 * 100$
+\begin{equation*} Grade = \left(0.5*HW1 + \sum_{i=2}^9 HW_i\right)/95 * 100$ \end{equation*}
 
 ####Notes
 1\. Clone the original OMS6250 repo and fork it.
